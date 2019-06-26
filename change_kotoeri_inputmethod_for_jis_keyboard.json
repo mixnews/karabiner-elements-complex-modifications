@@ -1,0 +1,48 @@
+{
+  "title":"Change Kotoeri inputmethod for JIS Keyboard",
+  "rules": [
+    {
+      "description": "Change inputmethod. 'HENKAN' to Japanese, 'MUHENKAN' to Roman",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": { "key_code": "international4" },
+          "to": [
+           {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Japanese$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "en" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": { "key_code": "international5" },
+          "to": [
+            {
+              "select_input_source": {
+                "input_source_id": "^com\\.apple\\.inputmethod\\.Kotoeri\\.Roman$"
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "input_source_if",
+              "input_sources": [
+                { "language": "ja" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
